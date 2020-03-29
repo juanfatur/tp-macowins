@@ -1,3 +1,5 @@
+A continuación se muestran los requerimientos del sistema para Macowins, y la solución con paradigma de objetos presentada en pseudocódigo (similar a java). El resto del repositorio es una posible resolución al ejercicio, con código funcionando en java.
+
 Requerimientos:
  - Modelar las prendas con sus distintos estados y tipos y registrar sus precios
  - Obtener precio de una prenda calculado a partir de su precio y su estado
