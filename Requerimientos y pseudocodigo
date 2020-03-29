@@ -1,0 +1,61 @@
+Requerimientos:
+ - Modelar las prendas con sus distintos estados y tipos y registrar sus precios
+ - Obtener precio de una prenda calculado a partir de su precio y su estado
+ - Registrar ventas, considerando su tipo (efectivo/tarjeta), lista de productos adquiridos y cuotas en el caso de la compra con tarjeta.
+ - Obtener el total de una venta.
+ 
+ 
+Diseño en pseudocódigo:
+
+
+double coeficienteCuotas;
+
+class TipoPrenda{
+}
+
+pantalon = new TipoPrenda()
+saco = new TipoPrenda()
+camisa = new TipoPrenda()
+
+abstract class Prenda {
+	TipoPrenda tipo;
+	double precio;
+	abstract double obtenerPrecio();
+}
+
+class Nueva extends Prenda {
+	double obtenerPrecio() {
+		return precio;
+	}
+}
+
+class Promocion extends Prenda {
+	double valorPromocion;
+	double obtenerPrecio() {
+		return precio - valorPromocion;
+	}
+}
+
+class Liquidacion extends Prenda {
+	double obtenerPrecio() {
+		return precio/2;
+	}
+}
+
+abstract class Venta {
+	Map<Prenda,Integer> articulosComprados;
+	LocalDate fecha;
+	double calcularPrecioFinal() {
+		//Calcula como si fuera efectivo
+	}
+}
+
+class VentaEfectivo extends Venta {
+}
+
+class VentaTarjeta extends Venta {
+	int cuotas;
+	double calcularPrecioFinal() {
+		return super.calcularPrecioFinal()*1.01 + cuotas * coeficienteCuotas;
+	}
+}
